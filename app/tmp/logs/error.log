@@ -1,0 +1,1 @@
+2009-09-17 14:58:22 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:306) in [CORE/cake/libs/controller/controller.php, line 644]
