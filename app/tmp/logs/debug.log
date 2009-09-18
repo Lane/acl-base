@@ -14,3 +14,4 @@
 2009-09-18 13:39:01 Notice: Notice (8): Undefined variable: User in [APP/views/layouts/default.ctp, line 49]
 2009-09-18 13:39:40 Notice: Notice (8): Undefined variable: User in [APP/views/layouts/default.ctp, line 49]
 2009-09-18 13:39:44 Notice: Notice (8): Undefined variable: User in [APP/views/layouts/default.ctp, line 49]
+2009-09-18 15:31:33 Notice: Notice (8): Use of undefined constant inputs - assumed 'inputs' in [APP/views/users/admin_add.ctp, line 14]

@@ -13,6 +13,12 @@ class UsersController extends AppController
         );
 	}
 	
+	function admin_index()
+	{
+		$users = $this->User->find('all');
+		$this->set(compact('users'));
+	}
+	
 	function admin_add()
 	{
 		if(!empty($this->data)) // form has been submitted
@@ -38,6 +44,9 @@ class UsersController extends AppController
 	{
 		if(!empty($this->data)) // form has been submitted
 		{
+			if($this->data['User']['passwd'] == Security::hash('', null, true))
+				unset($this->data['User']['passwd']);  // unset if blank
+			
 			if($this->User->save($this->data))
 			{
 				// save successful: set message and redirect
@@ -51,12 +60,15 @@ class UsersController extends AppController
 				$this->data['User']['confirm_password'] = null;
 			}
 		}
-		$user = $this->User->find('first', array('conditions' => array('User.id' => $id)));
-		if($user == null || $id == null)
+		$this->data = $this->User->find('first', array('conditions' => array('User.id' => $id)));
+		unset($this->data['User']['passwd']);
+		if($this->data == null || $id == null)
 		{
 			$this->Session->setFlash('Invalid user');
+			// redirect to error page
 		}
-		$this->set(compact('user'));
+		$this->set('groups', $this->User->Group->find('list'));
+		$this->render('admin_add');
 	}
 	
 	function admin_delete($id = null)
@@ -134,7 +146,7 @@ class UsersController extends AppController
 		}
 	}
 
-    function logout() 
+    function logout()
 	{
 		$this->Session->setFlash("You have been logged out.");
         $this->redirect($this->Auth->logout());
@@ -155,8 +167,8 @@ class UsersController extends AppController
 			else
 			{
 				// save failed: clear passwords
-				$this->data['User']['password'] = null;
-				$this->data['User']['confirm_password'] = null;
+				unset($this->data['User']['password']);
+				unset($this->data['User']['confirm_password']);
 			}
 		}
 		// form has not been submitted
