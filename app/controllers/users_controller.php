@@ -6,7 +6,7 @@ class UsersController extends AppController
 	
 	function beforeFilter() 
 	{
-        $this->Auth->allow('register');
+        $this->Auth->allow('*'); // TEMPORARY
         $this->Auth->fields = array(
             'username' => 'username', 
             'password' => 'passwd'
@@ -30,6 +30,7 @@ class UsersController extends AppController
 				$this->data['User']['confirm_password'] = null;
 			}
 		}
+		$this->set('groups', $this->User->Group->find('list'));
 		// form has not been submitted
 	}
 	
@@ -53,7 +54,7 @@ class UsersController extends AppController
 		$user = $this->User->find('first', array('conditions' => array('User.id' => $id)));
 		if($user == null || $id == null)
 		{
-			$this->Session->setFlash("Invalid user");
+			$this->Session->setFlash('Invalid user');
 		}
 		$this->set(compact('user'));
 	}
@@ -71,7 +72,7 @@ class UsersController extends AppController
 		$this->set(compact('user'));
 		if($user == null || $id == null)
 		{
-			$this->Session->setFlash("Invalid user");
+			$this->Session->setFlash('Invalid user');
 		}
 	}
 	
@@ -80,7 +81,7 @@ class UsersController extends AppController
 		$user = $this->User->find('first', array('conditions' => array('User.id' => $id)));
 		if($user == null || $id == null)
 		{
-			$this->Session->setFlash("Invalid user");
+			$this->Session->setFlash('Invalid user');
 		}
 		$this->set(compact('user'));
 	}
@@ -104,12 +105,12 @@ class UsersController extends AppController
 	{
 		if ($this->Auth->user())
 		{
-			if (!empty($this->data) && $this->data['User']['remember_me'])
+			if (!empty($this->data) && $this->data['User']['remember_me'] && $this->allowCookie)
 			{
 					$cookie = array();
 					$cookie['username'] = $this->data['User']['username'];
 					$cookie['passwd'] = $this->data['User']['passwd'];
-					$this->Cookie->write('Auth.User', $cookie, true, '+2 weeks');
+					$this->Cookie->write($this->cookieName, $cookie, true, $this->cookieTerm);
 					unset($this->data['User']['remember_me']);
 			}
 			$this->redirect($this->Auth->redirect());
@@ -148,7 +149,7 @@ class UsersController extends AppController
 			if($this->User->save($this->data))
 			{
 				// save successful: set message and redirect
-				$this->Session->setFlash("Account Created");
+				$this->Session->setFlash('Account Created');
 				$this->redirect(array('action' => 'index'));
 			}
 			else

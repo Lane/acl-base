@@ -32,6 +32,7 @@ class User extends AppModel
 			)
 		)
 	); 
+	var $belongsTo = 'Group';
 	
 	function beforeSave()  
 	{  
