@@ -1,0 +1,65 @@
+body { }
+
+/* Links */
+a { }
+a img { }
+
+/* Headings */
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 { }
+h1 {}
+h2 {}
+h3 {}
+h4 {}
+h5 {}
+h6 {}
+
+/* Lists */
+ul {}
+li {}
+
+/* Forms */
+form { clear: both; padding: 0; }
+fieldset { border: 1px solid #ccc; margin-top: 1.75em; padding: 1em; }
+fieldset legend { background:#fff; color: #000589; font-size: 1.6em; font-weight: bold; }
+fieldset fieldset { margin-top: 0; margin-bottom: 1em; padding: 1em; }
+fieldset fieldset legend { font-size: 1.2em; font-weight: normal; }
+fieldset fieldset div { clear: left; margin: 0 20px; }
+form div { clear: both; margin-bottom: 1em; padding: .5em; vertical-align: text-top; }
+form div.input { color: #444; width: 31em; }
+form div.required { color: #333; font-weight: bold; }
+form div.submit { border: 0; clear: both; margin-top: 0.75em; padding: 0; }
+form div.submit input { display: inline; font-size: 1em; width: auto; vertical-align: bottom; font-size: 1.2em; padding:0.25em }
+label { display: block; font-size: 110%; padding-right: 1em; }
+input, textarea { clear: both; font-size: 1.4em; padding: 0.125em; width: 100%; }
+select { clear: both; font-size: 1.2em; width: 100%; }
+select[multiple=multiple] { width: 100%; }
+option { font-size: 1.2em;  }
+input[type=checkbox] { clear: left; float: left; margin: 0px 6px 7px 2px; width: auto; }
+input[type=radio] { float:left; width:auto; margin: 0 3px 7px 0; }
+div.radio label { margin: 0 0 6px 20px; }
+
+
+/* Tables */
+table { background: #fff;	border:1px solid #ccc;	border-right:0;	clear: both; color: #333; margin-bottom: 10px;  }
+th {	background: #f2f2f2; border:1px solid #bbb; border-top: 1px solid #fff; border-left: 1px solid #fff; text-align: center; }
+th a { background:#f2f2f2; display: block; padding: 2px 4px; text-decoration: none; }
+th a:hover { background: #ccc; color: #333; text-decoration: none; }
+table tr td { background: #fff; border-right: 1px solid #ccc; padding: 4px; text-align: center; vertical-align: top; }
+table tr.altrow td { background: #f4f4f4; }
+td.actions { text-align: center; white-space: nowrap; }
+td.actions a { margin: 0px 6px; }
+.cake-sql-log table { 	background: #f4f4f4; }
+.cake-sql-log td { padding: 4px 8px; text-align: left; }
+
+/* Notices and Errors */
+div.message {clear: both; background: #eee; padding: 0.5em; color: #900; font-size: 1.4em; font-weight: bold; margin: 1em 0; }
+div.error-message { clear: both; background: #fee; color: #900; font-weight: bold; }
+p.error { background-color: #fdd; color: #c00; font-size: 1.2em; line-height: 1.4em; padding: 0.8em; margin: 1em 0; }
+p.error em { color: #000; font-weight: normal; line-height: 1.4em; }
+.notice { background: #ffeebb; color: #930; display: block; font-size: 1.2em; line-height: 1.4em; padding: 0.8em; margin: 1em 0; }
+.success { background: #dfc; color: #360; border: 2px solid #9c6; }
