@@ -41,27 +41,42 @@
 	?>
 </head>
 <body>
-	<div id="container" class="container_16">
-		<div id="header" class="grid_8">
-			<h1><?php echo $html->link(__('ACL Base', true), array('action' => 'index')); ?></h1>
+	<div id="page">
+		<div id="header-full">
+			<div id="header" class="container_16">
+				<div class="grid_8 alpha">
+				<h1>
+					<?php echo $html->link(__('ACL Base', true), array('action' => 'index')); ?>
+				</h1>
+				<span class="tagline">Are belong to us.</span>
+				</div>
+				<div id="userbox" class="grid_8">
+					<?php if(isset($User)):?>
+					<?php echo $User['username']; ?>
+					<?php endif; ?>
+				</div>
+			</div>
+			<div class="clear"></div>
 		</div>
-		<div id="userbox" class="grid_8">
-		<?php if(isset($User)):?>
-		<?php echo $User['username']; ?>
-		<?php endif; ?>
+		<div id="content-full">
+			<div id="content" class="container_16">
+				<?php $session->flash(); ?>
+				<?php $session->flash("auth"); ?>
+				<?php echo $content_for_layout; ?>
+			</div>
+			<div class="clear"></div>
 		</div>
-		<div id="content" class="grid_16">
-			<?php $session->flash(); ?>
-			<?php $session->flash("auth"); ?>
-			<?php echo $content_for_layout; ?>
-		</div>
-		<div id="footer" class="grid_16">
-			<?php echo $html->link(
-					$html->image('cake.power.gif', array('alt'=> __("CakePHP: the rapid development php framework", true), 'border'=>"0")),
-					'http://www.cakephp.org/',
-					array('target'=>'_blank'), null, false
-				);
-			?>
+		
+		<div id="footer-full">
+			<div id="footer" class="container_16">
+				<?php echo $html->link(
+						$html->image('cake.power.gif', array('alt'=> __("CakePHP: the rapid development php framework", true), 'border'=>"0")),
+						'http://www.cakephp.org/',
+						array('target'=>'_blank'), null, false
+					);
+				?>
+			</div>
+			<div class="clear"></div>
 		</div>
 		<?php echo $cakeDebug; ?>
 	</div>

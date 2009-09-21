@@ -2,7 +2,7 @@
 class AppController extends Controller 
 {
 	// Components to use application wide
-    var $components = array('Auth', 'Cookie');
+    var $components = array('Acl', 'Auth', 'Cookie');
 	
 	// Determines if a user can use the remember me feature of the Users/login function
 	var $allowCookie = TRUE;

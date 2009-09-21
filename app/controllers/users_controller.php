@@ -2,10 +2,11 @@
 class UsersController extends AppController
 {
 	var $name = 'Users';
-	var $components = array('Cookie');
+	var $uses = array('User', 'Aro', 'Group');
 	
 	function beforeFilter() 
 	{
+		parent::beforeFilter(); 
         $this->Auth->allow('*'); // TEMPORARY
         $this->Auth->fields = array(
             'username' => 'username', 
@@ -23,6 +24,8 @@ class UsersController extends AppController
 	{
 		if(!empty($this->data)) // form has been submitted
 		{
+			$this->data['User']['group_id'] = $this->data['User']['Group'];
+			unset($this->data['User']['Group']);
 			if($this->User->save($this->data))
 			{
 				// save successful: set message and redirect
@@ -32,11 +35,11 @@ class UsersController extends AppController
 			else
 			{
 				// save failed: clear passwords
-				$this->data['User']['password'] = null;
-				$this->data['User']['confirm_password'] = null;
+				unset($this->data['User']['password']);
+				unset($this->data['User']['confirm_password']);
 			}
 		}
-		$this->set('groups', $this->User->Group->find('list'));
+		$this->set('groups', $this->Group->find('list'));
 		// form has not been submitted
 	}
 	
@@ -47,6 +50,8 @@ class UsersController extends AppController
 			if($this->data['User']['passwd'] == Security::hash('', null, true))
 				unset($this->data['User']['passwd']);  // unset if blank
 			
+			$this->data['User']['group_id'] = $this->data['User']['Group'];
+			unset($this->data['User']['Group']);
 			if($this->User->save($this->data))
 			{
 				// save successful: set message and redirect
@@ -56,8 +61,8 @@ class UsersController extends AppController
 			else
 			{
 				// save failed: clear passwords
-				$this->data['User']['password'] = null;
-				$this->data['User']['confirm_password'] = null;
+				unset($this->data['User']['password']);
+				unset($this->data['User']['confirm_password']);
 			}
 		}
 		$this->data = $this->User->find('first', array('conditions' => array('User.id' => $id)));

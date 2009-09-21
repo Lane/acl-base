@@ -1,1 +1,4 @@
 2009-09-17 14:58:22 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:306) in [CORE/cake/libs/controller/controller.php, line 644]
+2009-09-21 09:44:05 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:306) in [CORE/cake/libs/controller/controller.php, line 644]
+2009-09-21 09:47:09 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:109) in [CORE/cake/libs/controller/controller.php, line 644]
+2009-09-21 10:09:11 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:306) in [CORE/cake/libs/controller/controller.php, line 644]
