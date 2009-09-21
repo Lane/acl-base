@@ -43,3 +43,4 @@
 2009-09-21 09:41:16 Notice: Notice (8): Undefined property: User::$Aro in [APP/models/user.php, line 77]
 2009-09-21 09:47:09 Notice: Notice (8): Undefined index:  email in [APP/models/user.php, line 140]
 2009-09-21 10:06:14 Notice: Notice (8): Undefined index:  group_id in [APP/views/users/admin_add.ctp, line 16]
+2009-09-21 16:33:34 Notice: Notice (8): Undefined variable: menu in [APP/views/layouts/default.ctp, line 65]

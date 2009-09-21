@@ -7,6 +7,15 @@ class UsersController extends AppController
 	function beforeFilter() 
 	{
 		parent::beforeFilter(); 
+		$this->subnavItems = array(
+			array(
+				'restricted' => false,
+				'label' => 'Create New User',
+				'action' => 'admin_add',
+				'controller' => 'Users',
+				'crud' => 'create'
+			)
+		);
         $this->Auth->allow('*'); // TEMPORARY
         $this->Auth->fields = array(
             'username' => 'username', 

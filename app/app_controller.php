@@ -13,13 +13,41 @@ class AppController extends Controller
 	// Name to use for cookie holding user values
 	var $cookieName = 'User';
 	
+	var $loggedUser = null;
+	
+	var $menuItems = array(
+		array(
+			'restricted' => false,
+			'label' => 'Home',
+			'action' => 'index',
+			'controller' => 'Pages',
+			'crud' => 'read'
+		),
+		array(
+			'restricted' => false,
+			'label' => 'Users',
+			'action' => 'index',
+			'controller' => 'Users',
+			'crud' => 'read'
+		),
+		array(
+			'restricted' => false,
+			'label' => 'Groups',
+			'action' => 'index',
+			'controller' => 'Groups',
+			'crud' => 'read'
+		),
+	);
+	
+	var $subnavItems = array();
+	
 	function beforeFilter()
 	{
 		$cookie = null;
 		$this->Auth->allow('display');
 		$this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
 		$this->Auth->loginRedirect = array('controller' => 'pages', 'action' => 'display', 'home');
-		$this->Auth->authorize = 'controller';
+		$this->Auth->authorize = 'crud';
 		$this->Auth->loginError = 'Sorry, login failed. Either your username or password are incorrect.';
 		$this->Auth->authError = 'The page you tried to access is restricted. You have been redirected to the page below.';
 		// check if user is logged in, or if they have a valid cookie
@@ -28,6 +56,17 @@ class AppController extends Controller
 			$this->Auth->login($cookie);
 			$this->__setLoggedUserValues();
 		}
+	}
+	
+	function beforeRender()
+	{		
+		$controllerName = Inflector::camelize($this->params['controller']);
+		$this->set('controller', $controllerName);
+		$actionName = $this->params['action'];
+		$this->set('action', $actionName);
+		//$this->__getCrumbs();
+		$this->set('menu', $this->__buildMenu($this->menuItems));
+		$this->set('subnav', $this->__buildMenu($this->subnavItems));
 	}
 	
 	/**
@@ -46,14 +85,36 @@ class AppController extends Controller
 				$this->Cookie->del('User');
 			}
 			$this->set('User', $user[$this->Auth->userModel]);
+			$this->loggedUser = $user[$this->Auth->userModel][$this->Auth->fields['username']];
 			return true;
 		}
 		return false;
 	}
 	
-	function isAuthorized() 
+	/**
+	* Builds a menu adding restricted links, if user is logged in.
+	* @access private
+	* @returns null
+	*/
+	function __buildMenu($items)
 	{
-		return true;
+		$menu = array();
+		foreach( $items as $menuLink )
+		{
+			if( $menuLink['restricted'] )
+			{
+				if( !$this->loggedUser || 
+					!$this->Acl->check($this->loggedUser, $menuLink['controller'], $menuLink['crud'])
+				)
+					continue;
+			} 
+			$menu[] = array(
+				'label' => __($menuLink['label'], true), 
+				'controller' => strtolower($menuLink['controller']), 
+				'action' => $menuLink['action']
+			);
+		}
+		return $menu;
 	}
 }
 ?>

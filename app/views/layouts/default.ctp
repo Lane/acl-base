@@ -44,13 +44,13 @@
 	<div id="page">
 		<div id="header-full">
 			<div id="header" class="container_16">
-				<div class="grid_8 alpha">
+				<div class="grid_4">
 				<h1>
 					<?php echo $html->link(__('ACL Base', true), array('action' => 'index')); ?>
 				</h1>
-				<span class="tagline">Are belong to us.</span>
+				<span class="tagline">Are belong to us</span>
 				</div>
-				<div id="userbox" class="grid_8">
+				<div id="userbox" class="grid_12">
 					<?php if(isset($User)):?>
 					<?php echo $User['username']; ?>
 					<?php endif; ?>
@@ -60,9 +60,35 @@
 		</div>
 		<div id="content-full">
 			<div id="content" class="container_16">
-				<?php $session->flash(); ?>
-				<?php $session->flash("auth"); ?>
-				<?php echo $content_for_layout; ?>
+				<div class="grid_4">
+					<ul id="navigation">
+						<?php foreach($menu as $item): ?>
+							<?php $class=$item['label']."-link"; ?>
+							<?php if($item['controller'] == strtolower($controller)): ?>
+								<?php $class.=" active"; ?>
+							<?php endif; ?>
+							<li class="<?php echo $class; ?>">
+							<?php echo $html->link($item['label'], array('controller'=>$item['controller'], 'action'=>$item['action'])); ?>
+							<?php if($item['controller'] == strtolower($controller)): ?>
+								<?php foreach($subnav as $subitem): ?>
+									<ul>
+										<li class="<?php echo $class; ?>">
+										<?php echo $html->link($subitem['label'], array('controller'=>$subitem['controller'], 'action'=>$subitem['action'])); ?>
+										</li>
+									</ul>
+								<?php endforeach; ?>
+							<?php endif; ?>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+				<div class="grid_8">
+					<?php $session->flash(); ?>
+					<?php $session->flash("auth"); ?>
+					<?php echo $content_for_layout; ?>
+				</div>
+				<div class="grid_4">
+				</div>
 			</div>
 			<div class="clear"></div>
 		</div>
