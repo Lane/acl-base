@@ -5,7 +5,7 @@ class GroupsController extends AppController
 	
 	function beforeFilter()
 	{
-		$this->Auth->allow('*');  // TEMPORARY
+		parent::beforeFilter();
 	}
 	
 	function admin_add()

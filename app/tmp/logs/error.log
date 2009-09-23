@@ -4,3 +4,52 @@
 2009-09-21 10:09:11 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:306) in [CORE/cake/libs/controller/controller.php, line 644]
 2009-09-21 16:33:34 Warning: Warning (2): Invalid argument supplied for foreach() in [APP/views/layouts/default.ctp, line 65]
 2009-09-21 16:54:58 Warning: Warning (2): Invalid argument supplied for foreach() in [APP/app_controller.php, line 102]
+2009-09-22 09:17:34 Warning: Warning (2): fopen(/var/www/sandbox/app/tmp/cache/persistent/cake_core_core_paths) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [CORE/cake/libs/file.php, line 156]
+2009-09-22 09:17:34 Warning: Warning (2): fopen(/var/www/sandbox/app/tmp/cache/models/cake_model_default_sandbox_list) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [CORE/cake/libs/file.php, line 156]
+2009-09-22 09:17:34 Warning: Warning (2): fopen(/var/www/sandbox/app/tmp/cache/models/cake_model_default_aros) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [CORE/cake/libs/file.php, line 156]
+2009-09-22 09:17:34 Warning: Warning (2): fopen(/var/www/sandbox/app/tmp/cache/models/cake_model_default_acos) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [CORE/cake/libs/file.php, line 156]
+2009-09-22 09:17:34 Warning: Warning (2): fopen(/var/www/sandbox/app/tmp/cache/models/cake_model_default_aros_acos) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [CORE/cake/libs/file.php, line 156]
+2009-09-22 09:17:34 Warning: Warning (2): fopen(/var/www/sandbox/app/tmp/cache/models/cake_model_default_users) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [CORE/cake/libs/file.php, line 156]
+2009-09-22 09:17:34 Warning: Warning (2): fopen(/var/www/sandbox/app/tmp/cache/models/cake_model_default_groups) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [CORE/cake/libs/file.php, line 156]
+2009-09-22 09:17:34 Warning: Warning (2): fopen(/var/www/sandbox/app/tmp/cache/persistent/cake_core_dir_map) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [CORE/cake/libs/file.php, line 156]
+2009-09-22 09:17:34 Warning: Warning (2): fopen(/var/www/sandbox/app/tmp/cache/persistent/cake_core_file_map) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [CORE/cake/libs/file.php, line 156]
+2009-09-22 09:17:34 Warning: Warning (2): fopen(/var/www/sandbox/app/tmp/cache/persistent/cake_core_default_en_us) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [CORE/cake/libs/file.php, line 156]
+2009-09-22 09:17:36 Warning: Warning (2): fopen(/var/www/sandbox/app/tmp/cache/persistent/cake_core_core_paths) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [CORE/cake/libs/file.php, line 156]
+2009-09-22 09:17:36 Warning: Warning (2): fopen(/var/www/sandbox/app/tmp/cache/models/cake_model_default_sandbox_list) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [CORE/cake/libs/file.php, line 156]
+2009-09-22 09:17:36 Warning: Warning (2): fopen(/var/www/sandbox/app/tmp/cache/models/cake_model_default_aros) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [CORE/cake/libs/file.php, line 156]
+2009-09-22 09:17:36 Warning: Warning (2): fopen(/var/www/sandbox/app/tmp/cache/models/cake_model_default_acos) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [CORE/cake/libs/file.php, line 156]
+2009-09-22 09:17:36 Warning: Warning (2): fopen(/var/www/sandbox/app/tmp/cache/models/cake_model_default_aros_acos) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [CORE/cake/libs/file.php, line 156]
+2009-09-22 09:17:36 Warning: Warning (2): fopen(/var/www/sandbox/app/tmp/cache/models/cake_model_default_users) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [CORE/cake/libs/file.php, line 156]
+2009-09-22 09:17:36 Warning: Warning (2): fopen(/var/www/sandbox/app/tmp/cache/models/cake_model_default_groups) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [CORE/cake/libs/file.php, line 156]
+2009-09-22 09:17:36 Warning: Warning (2): fopen(/var/www/sandbox/app/tmp/cache/persistent/cake_core_dir_map) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [CORE/cake/libs/file.php, line 156]
+2009-09-22 09:17:36 Warning: Warning (2): fopen(/var/www/sandbox/app/tmp/cache/persistent/cake_core_file_map) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [CORE/cake/libs/file.php, line 156]
+2009-09-22 09:17:36 Warning: Warning (2): fopen(/var/www/sandbox/app/tmp/cache/persistent/cake_core_default_en_us) [<a href='http://php.net/function.fopen'>function.fopen</a>]: failed to open stream: Permission denied in [CORE/cake/libs/file.php, line 156]
+2009-09-22 16:01:35 Warning: Warning (2): Invalid argument supplied for foreach() in [APP/views/layouts/default.ctp, line 61]
+2009-09-22 16:01:36 Warning: Warning (2): Invalid argument supplied for foreach() in [APP/views/layouts/default.ctp, line 61]
+2009-09-22 16:01:36 Warning: Warning (2): Invalid argument supplied for foreach() in [APP/views/layouts/default.ctp, line 61]
+2009-09-22 16:01:36 Warning: Warning (2): Invalid argument supplied for foreach() in [APP/views/layouts/default.ctp, line 61]
+2009-09-22 16:01:36 Warning: Warning (2): Invalid argument supplied for foreach() in [APP/views/layouts/default.ctp, line 61]
+2009-09-22 16:01:36 Warning: Warning (2): Invalid argument supplied for foreach() in [APP/views/layouts/default.ctp, line 61]
+2009-09-22 16:01:36 Warning: Warning (2): Invalid argument supplied for foreach() in [APP/views/layouts/default.ctp, line 61]
+2009-09-22 16:01:39 Warning: Warning (2): Invalid argument supplied for foreach() in [APP/views/layouts/default.ctp, line 61]
+2009-09-22 16:01:39 Warning: Warning (2): Invalid argument supplied for foreach() in [APP/views/layouts/default.ctp, line 61]
+2009-09-23 09:08:48 Warning: Warning (512): Auth::startup() - Attempted access of un-mapped action "admin_display" in controller "pages" in [CORE/cake/libs/controller/components/auth.php, line 490]
+2009-09-23 09:08:48 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:109) in [CORE/cake/libs/controller/controller.php, line 644]
+2009-09-23 09:12:25 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: Array
+(
+    [User] => Array
+        (
+            [id] => 1
+            [username] => LaneOlson
+            [email_address] => laneolson@gmail.com
+            [created] => 2009-09-21 09:47:09
+            [modified] => 2009-09-22 13:08:58
+            [group_id] => 1
+            [enabled] => 1
+        )
+
+)
+
+Aco: Dashboard in [CORE/cake/libs/controller/components/acl.php, line 239]
+2009-09-23 09:12:25 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:109) in [CORE/cake/libs/controller/controller.php, line 644]

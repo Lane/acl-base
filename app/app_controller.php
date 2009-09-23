@@ -4,6 +4,9 @@ class AppController extends Controller
 	// Components to use application wide
     var $components = array('Acl', 'Auth', 'Cookie');
 	
+	// Helpers
+	var $helpers = array('Html', 'Form', 'Gravatar');
+	
 	// Determines if a user can use the remember me feature of the Users/login function
 	var $allowCookie = TRUE;
 	 
@@ -25,6 +28,23 @@ class AppController extends Controller
 		),
 		array(
 			'restricted' => false,
+			'label' => 'Posts',
+			'action' => 'index',
+			'controller' => 'Posts',
+			'crud' => 'read'
+		)
+	);
+	
+	var $adminItems = array(
+		array(
+			'restricted' => false,
+			'label' => 'Home',
+			'action' => 'index',
+			'controller' => 'dashboard',
+			'crud' => 'read'
+		),
+		array(
+			'restricted' => false,
 			'label' => 'Users',
 			'action' => 'index',
 			'controller' => 'Users',
@@ -36,7 +56,7 @@ class AppController extends Controller
 			'action' => 'index',
 			'controller' => 'Groups',
 			'crud' => 'read'
-		),
+		)
 	);
 	
 	var $subnavItems = array();
@@ -50,6 +70,12 @@ class AppController extends Controller
 		$this->Auth->authorize = 'crud';
 		$this->Auth->loginError = 'Sorry, login failed. Either your username or password are incorrect.';
 		$this->Auth->authError = 'The page you tried to access is restricted. You have been redirected to the page below.';
+        $this->Auth->allow('*'); // TEMPORARY
+        $this->Auth->fields = array(
+            'username' => 'username', 
+            'password' => 'passwd'
+        );
+		
 		// check if user is logged in, or if they have a valid cookie
 		if(!$this->__setLoggedUserValues() && ($cookie = $this->Cookie->read($this->cookieName )))
 		{
@@ -64,8 +90,17 @@ class AppController extends Controller
 		$this->set('controller', $controllerName);
 		$actionName = $this->params['action'];
 		$this->set('action', $actionName);
-		//$this->__getCrumbs();
-		$this->set('menu', $this->__buildMenu($this->menuItems));
+
+		$admin = Configure::read('Routing.admin');
+		if (isset($this->params[$admin]) && $this->params[$admin]) 
+		{
+			//$this->layout = 'admin';
+			$this->set('menu', $this->__buildMenu($this->adminItems));
+        }
+		else
+		{
+			$this->set('menu', $this->__buildMenu($this->menuItems));
+		}
 		$this->set('subnav', $this->__buildMenu($this->subnavItems));
 	}
 	

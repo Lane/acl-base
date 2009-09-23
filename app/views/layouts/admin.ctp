@@ -50,7 +50,9 @@
 				</h1>
 				<span class="tagline">Are belong to us</span>
 				</div>
-
+				<div class="grid_12">
+					&nbsp;
+				</div>
 			</div>
 			<div class="clear"></div>
 		</div>
@@ -83,14 +85,13 @@
 					<?php $session->flash("auth"); ?>
 					<?php echo $content_for_layout; ?>
 				</div>
-				<div id="sidebar" class="grid_4">
-					<div id="userbox">
-						<?php echo $this->element("userbox");?>
-					</div>
+				<div id="userbox" class="grid_4">
+					<?php echo $this->element("userbox");?>
 				</div>
 			</div>
 			<div class="clear"></div>
 		</div>
+		
 		<div id="footer-full">
 			<div id="footer" class="container_16">
 				<?php echo $html->link(

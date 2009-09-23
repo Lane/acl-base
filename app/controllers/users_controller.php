@@ -16,11 +16,6 @@ class UsersController extends AppController
 				'crud' => 'create'
 			)
 		);
-        $this->Auth->allow('*'); // TEMPORARY
-        $this->Auth->fields = array(
-            'username' => 'username', 
-            'password' => 'passwd'
-        );
 	}
 	
 	function admin_index()
