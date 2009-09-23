@@ -54,7 +54,28 @@ class GroupsController extends AppController
 	
 	function admin_delete($id=null)
 	{
-
+		if(!empty($this->data))
+		{
+			if($this->data['Group']['delete'] == 1)
+			{
+				if($this->Group->delete($this->data['Group']['id']))
+				{
+					// group deleted, do something
+					$this->Session->setFlash('Group deleted.');
+					$this->redirect(array('action' => 'index'));
+				}
+				else
+				{
+					// problem deleting, do something else
+				}
+			}
+		}
+		$group = $this->Group->find('first', array('conditions' => array('Group.id' => $id)));
+		$this->set(compact('group'));
+		if($group == null || $id == null)
+		{
+			$this->Session->setFlash('Invalid group');
+		}
 	}
 	
 	function admin_view($id=null)

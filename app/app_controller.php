@@ -94,7 +94,7 @@ class AppController extends Controller
 		$admin = Configure::read('Routing.admin');
 		if (isset($this->params[$admin]) && $this->params[$admin]) 
 		{
-			//$this->layout = 'admin';
+			$this->layout = 'admin';
 			$this->set('menu', $this->__buildMenu($this->adminItems));
         }
 		else

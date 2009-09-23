@@ -31,6 +31,11 @@ body { font-size: 0.9em; background-color: #111; font-family: Arial, Tahoma, Hel
 #navigation li ul li { margin: 0em; padding: 0em; border: 0; }
 #navigation li ul li a {text-transform: none; font-size: 0.85em; background: #333; color: #ccc; border: 2px solid #333; padding-left: 1.5em; }
 
+ul.list li.actions { }
+ul.list { padding: 0.5em 0em; border-bottom: 1px solid #eee; }
+ul.alt1 { }
+ul.alt2 { }
+
 #sidebar { }
 #sidebar h2 { color: #666; margin-bottom: 0.5em;}
 

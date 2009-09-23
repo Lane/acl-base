@@ -43,8 +43,11 @@ class UsersController extends AppController
 				unset($this->data['User']['confirm_password']);
 			}
 		}
+		// form has not been submitted or did not validate
+		// set defaults
+		$this->data['User']['group_id'] = 3;
+		$this->data['User']['enabled'] = 1;
 		$this->set('groups', $this->Group->find('list'));
-		// form has not been submitted
 	}
 	
 	function admin_edit($id=null)
@@ -84,9 +87,18 @@ class UsersController extends AppController
 	{
 		if(!empty($this->data))
 		{
-			if($this->User->remove($this->data['User']['id']))
+			if($this->data['User']['delete'] == 1)
 			{
-				// user deleted, do something
+				if($this->User->delete($this->data['User']['id']))
+				{
+					// user deleted, do something
+					$this->Session->setFlash('User deleted.');
+					$this->redirect(array('action' => 'index'));
+				}
+				else
+				{
+					// problem deleting, do something else
+				}
 			}
 		}
 		$user = $this->User->find('first', array('conditions' => array('User.id' => $id)));

@@ -80,13 +80,10 @@
 						<?php endforeach; ?>
 					</ul>
 				</div>
-				<div class="grid_8">
+				<div class="grid_12">
 					<?php $session->flash(); ?>
 					<?php $session->flash("auth"); ?>
 					<?php echo $content_for_layout; ?>
-				</div>
-				<div id="userbox" class="grid_4">
-					<?php echo $this->element("userbox");?>
 				</div>
 			</div>
 			<div class="clear"></div>

@@ -1,4 +1,4 @@
-<div class="add-form grid_8 alpha">
+<div class="add-form">
 <?php
 	$inputs = array(
 		'User.username', 
@@ -7,9 +7,10 @@
 			'label' => 'Password',
 			'div' => 'input text required'
 		),
-		'User.Group',
-		'User.enabled' => array('checked' => true)
+		'User.Group' => array('value' => $this->data['User']['group_id']),
+		'User.enabled'
 	);
+
 	echo $form->create("User");
 	if(isset($this->data['User']['group_id']))
 	{

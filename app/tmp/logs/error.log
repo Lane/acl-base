@@ -53,3 +53,4 @@ Aro: Array
 
 Aco: Dashboard in [CORE/cake/libs/controller/components/acl.php, line 239]
 2009-09-23 09:12:25 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:109) in [CORE/cake/libs/controller/controller.php, line 644]
+2009-09-23 13:59:50 Warning: Warning (2): Invalid argument supplied for foreach() in [APP/views/groups/admin_index.ctp, line 4]
