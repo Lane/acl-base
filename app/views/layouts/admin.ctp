@@ -35,12 +35,52 @@
 		echo $html->css('reset');
 		echo $html->css('960');
 		echo $html->css('text');
-		echo $html->css('site');
+		echo $html->css('admin');
 
 		echo $scripts_for_layout;
 	?>
 </head>
 <body>
+<div id="page">
+	<div id="header-wrapper">
+		<div id="header-inner" class="container_16">
+			<div id="logo" class="grid_8">
+				<h1>Kos Oilfield Transportation</h1>
+			</div>
+			<div id="userbox" class="grid_8">
+				<span>search</span>
+			</div>
+		
+			<div class="clear"></div>
+			<ul id="navigation" class="grid_16">
+				<li><a href="#" class="active">Home</a></li>
+				<li><a href="#">Users</a></li>
+				<li><a href="#">Groups</a></li>
+				<li><a href="#">Posts</a></li>
+			</ul>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="content-wrapper">
+		<div id="content" class="container_16">
+			<div id="main-content" class="grid_12">
+				<h2>A secondary heading</h2>
+			</div>
+			<div id="sub-content" class="grid_4">
+				<h6>Side Content</h6>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div id="footer-wrapper">
+		<div id="footer" class="container_16">
+		
+		</div>
+	</div>
+</div>
+
+<?php
+/*
 	<div id="page">
 		<div id="header-full">
 			<div id="header" class="container_16">
@@ -102,5 +142,7 @@
 		</div>
 		<?php echo $cakeDebug; ?>
 	</div>
+*/
+?>
 </body>
 </html>
