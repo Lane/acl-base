@@ -5,7 +5,16 @@ class GroupsController extends AppController
 	
 	function beforeFilter()
 	{
-		parent::beforeFilter();
+		parent::beforeFilter(); 
+		$this->subnavItems = array(
+			array(
+				'restricted' => false,
+				'label' => __("Create New Group", true),
+				'action' => 'admin_add',
+				'controller' => 'Groups',
+				'crud' => 'create'
+			)
+		);
 	}
 	
 	function admin_add()

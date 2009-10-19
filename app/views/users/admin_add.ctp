@@ -1,6 +1,12 @@
 <div class="add-form">
+<h2>
+<?php echo $friendlyTitle; ?> 
+</h2>
+<p class="page-description"><?php __("Fill out the form below and click Save to modify the user."); ?></p>
 <?php
 	$inputs = array(
+		'fieldset' => false,
+		'legend' => false,
 		'User.username', 
 		'User.email_address',
 		'User.passwd' => array(

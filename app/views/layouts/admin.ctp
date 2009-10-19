@@ -44,19 +44,24 @@
 <div id="page">
 	<div id="header-wrapper">
 		<div id="header-inner" class="container_16">
-			<div id="logo" class="grid_8">
+			<div id="logo" class="grid_12">
 				<h1>Kos Oilfield Transportation</h1>
 			</div>
-			<div id="userbox" class="grid_8">
-				<span>search</span>
+			<div id="userbox" class="grid_4">
+				
 			</div>
 		
 			<div class="clear"></div>
 			<ul id="navigation" class="grid_16">
-				<li><a href="#" class="active">Home</a></li>
-				<li><a href="#">Users</a></li>
-				<li><a href="#">Groups</a></li>
-				<li><a href="#">Posts</a></li>
+						<?php foreach($menu as $item): ?>
+							<?php $class=$item['label']."-link"; ?>
+							<?php if($item['controller'] == strtolower($controller)): ?>
+								<?php $class.=" active"; ?>
+							<?php endif; ?>
+							<li class="<?php echo $class; ?>">
+								<?php echo $html->link($item['label'], array('controller'=>$item['controller'], 'action'=>$item['action'])); ?>
+							</li>
+						<?php endforeach; ?>
 			</ul>
 		</div>
 		<div class="clear"></div>
@@ -64,10 +69,21 @@
 	<div id="content-wrapper">
 		<div id="content" class="container_16">
 			<div id="main-content" class="grid_12">
-				<h2>A secondary heading</h2>
+				<?php $session->flash(); ?>
+				<?php $session->flash("auth"); ?>
+				<?php echo $content_for_layout; ?>
 			</div>
-			<div id="sub-content" class="grid_4">
-				<h6>Side Content</h6>
+			<div id="sidebar" class="grid_4">
+				<?php if(isset($subnav) && !empty($subnav)): ?>
+				<h2>Actions</h2>
+				<ul>
+					<?php foreach($subnav as $subitem): ?>
+						<li>
+						<?php echo $html->link($subitem['label'], array('controller'=>$subitem['controller'], 'action'=>$subitem['action'])); ?>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+				<?php endif; ?>
 			</div>
 			<div class="clear"></div>
 		</div>
@@ -78,71 +94,5 @@
 		</div>
 	</div>
 </div>
-
-<?php
-/*
-	<div id="page">
-		<div id="header-full">
-			<div id="header" class="container_16">
-				<div class="grid_4">
-				<h1>
-					<?php echo $html->link(__('ACL Base', true), array('action' => 'index')); ?>
-				</h1>
-				<span class="tagline">Are belong to us</span>
-				</div>
-				<div class="grid_12">
-					&nbsp;
-				</div>
-			</div>
-			<div class="clear"></div>
-		</div>
-		<div id="content-full">
-			<div id="content" class="container_16">
-				<div class="grid_4">
-					<ul id="navigation">
-						<?php foreach($menu as $item): ?>
-							<?php $class=$item['label']."-link"; ?>
-							<?php if($item['controller'] == strtolower($controller)): ?>
-								<?php $class.=" active"; ?>
-							<?php endif; ?>
-							<li class="<?php echo $class; ?>">
-							<?php echo $html->link($item['label'], array('controller'=>$item['controller'], 'action'=>$item['action'])); ?>
-							<?php if($item['controller'] == strtolower($controller)): ?>
-								<?php foreach($subnav as $subitem): ?>
-									<ul>
-										<li class="<?php echo $class; ?>">
-										<?php echo $html->link($subitem['label'], array('controller'=>$subitem['controller'], 'action'=>$subitem['action'])); ?>
-										</li>
-									</ul>
-								<?php endforeach; ?>
-							<?php endif; ?>
-							</li>
-						<?php endforeach; ?>
-					</ul>
-				</div>
-				<div class="grid_12">
-					<?php $session->flash(); ?>
-					<?php $session->flash("auth"); ?>
-					<?php echo $content_for_layout; ?>
-				</div>
-			</div>
-			<div class="clear"></div>
-		</div>
-		
-		<div id="footer-full">
-			<div id="footer" class="container_16">
-				<?php echo $html->link(
-						$html->image('cake.power.gif', array('alt'=> __("CakePHP: the rapid development php framework", true), 'border'=>"0")),
-						'http://www.cakephp.org/',
-						array('target'=>'_blank'), null, false
-					);
-				?>
-			</div>
-			<div class="clear"></div>
-		</div>
-		<?php echo $cakeDebug; ?>
-	</div>
-*/
-?>
 </body>
 </html>

@@ -54,3 +54,5 @@ Aro: Array
 Aco: Dashboard in [CORE/cake/libs/controller/components/acl.php, line 239]
 2009-09-23 09:12:25 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:109) in [CORE/cake/libs/controller/controller.php, line 644]
 2009-09-23 13:59:50 Warning: Warning (2): Invalid argument supplied for foreach() in [APP/views/groups/admin_index.ctp, line 4]
+2009-10-14 14:24:13 Warning: Warning (2): curl_setopt() [<a href='http://php.net/function.curl-setopt'>function.curl-setopt</a>]: You must pass either an object or an array with the CURLOPT_HTTPHEADER, CURLOPT_QUOTE, CURLOPT_HTTP200ALIASES and CURLOPT_POSTQUOTE arguments in [APP/vendors/googleanalytics.php, line 251]
+2009-10-19 13:04:00 Warning: Warning (2): Invalid argument supplied for foreach() in [APP/views/users/admin_index.ctp, line 24]

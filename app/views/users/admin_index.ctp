@@ -1,16 +1,21 @@
 <?php $c=0; //initialize counter ?>
-<div id="users-index" class="content">
+<div id="users-index" class="content main-box">
 	<h2><?php echo __("Users List"); ?></h2>
-	<?php foreach($users as $user): ?>
-	<ul class="user-attributes list alt<?php echo (($c++)%2)+1; ?>">
-		<li class="grid_3 username alpha"><?php echo $user['User']['username']; ?>
-		<li class="grid_3 email"><?php echo $user['User']['email_address']; ?></li>
-		<li class="grid_3 group"><?php echo $user['Group']['name']; ?></li>
-		<li class="grid_3 actions omega">
-			<?php echo $html->link("edit", array('controller' => 'users', 'action' => 'edit', $user['User']['id'])); ?>
-			<?php echo $html->link("delete", array('controller' => 'users', 'action' => 'delete', $user['User']['id'])); ?>
-		</li>
-		<li class="clear"></li>
-	</ul>
-	<?php endforeach; ?>
+	<p class="page-description">Viewing <?php echo sizeof($users);?> users by time last seen </p>
+	<div class="inner-box">
+		<ul class="user-list list alt<?php echo (($c++)%2)+1; ?>">
+		<?php foreach($users as $user): ?>
+			<li class="user-list-item">
+				<span class="user-list-item-name"><?php echo $user['User']['username']; ?></span>
+				<span class="user-list-item-group">(<?php echo Inflector::singularize($user['Group']['name']); ?>)</span>
+				<span class="user-list-item-actions">
+					<?php echo $html->link("edit", array('controller' => 'users', 'action' => 'edit', $user['User']['id'])); ?>
+					<?php echo $html->link("delete", array('controller' => 'users', 'action' => 'delete', $user['User']['id'])); ?>
+				</span>
+				<span class="user-list-item-lastseen"><?php __("Last seen"); ?> <?php echo $time->timeAgoInWords($user['User']['modified']); ?></span>
+				
+			</li>
+		<?php endforeach; ?>
+		</ul>
+	</div>
 </div>

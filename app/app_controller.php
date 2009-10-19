@@ -5,7 +5,7 @@ class AppController extends Controller
     var $components = array('Acl', 'Auth', 'Cookie');
 	
 	// Helpers
-	var $helpers = array('Html', 'Form', 'Gravatar');
+	var $helpers = array('Html', 'Form', 'Gravatar', 'Time');
 	
 	// Determines if a user can use the remember me feature of the Users/login function
 	var $allowCookie = TRUE;
@@ -92,7 +92,7 @@ class AppController extends Controller
 		$this->set('action', $actionName);
 
 		$admin = Configure::read('Routing.admin');
-		if (isset($this->params[$admin]) && $this->params[$admin]) 
+		if (isset($this->params[$admin]) && $this->params[$admin] && $this->action != "admin_login") 
 		{
 			$this->layout = 'admin';
 			$this->set('menu', $this->__buildMenu($this->adminItems));
@@ -102,6 +102,7 @@ class AppController extends Controller
 			$this->set('menu', $this->__buildMenu($this->menuItems));
 		}
 		$this->set('subnav', $this->__buildMenu($this->subnavItems));
+		$this->set('friendlyTitle', $this->__getFriendlyTitle());
 	}
 	
 	/**
@@ -124,6 +125,41 @@ class AppController extends Controller
 			return true;
 		}
 		return false;
+	}
+	
+	function __getFriendlyTitle()
+	{
+			$isEdit = (
+				strpos($this->action, 'update') !== false ||
+				strpos($this->action, 'edit') !== false
+			);
+			$isAdd = (
+				strpos($this->action, 'add') !== false ||
+				strpos($this->action, 'new') !== false
+			);
+			$isRemove = (
+				strpos($this->action, 'delete') !== false ||
+				strpos($this->action, 'remove') !== false
+			);
+			if ($isEdit) 
+			{
+				$actionName = __('Edit', true);
+			}
+			else if($isAdd)
+			{
+				$actionName = __('New', true);
+			}
+			else if($isRemove)
+			{
+				$actionName = __('Remove', true);
+			}
+			else
+			{
+				$actionName = null;
+			}
+			$modelName = Inflector::humanize(Inflector::underscore($this->name));
+			$modelName = Inflector::singularize($modelName);
+			return $friendlyTitle = $actionName .' '. __($modelName, true);
 	}
 	
 	/**
