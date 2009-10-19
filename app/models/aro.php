@@ -2,6 +2,7 @@
 class Aro extends AppModel
 {
 	var $name = 'Aro';
+	var $actsAs = array('Tree');
 	
 	var $hasAndBelongsToMany = array(
 		'Aco' => array(

@@ -23,13 +23,29 @@ class GroupsController extends AppController
 		{
 			if($this->Group->save($this->data))
 			{
+				$aro = $this->Aro->find(
+					'first', array(
+						'conditions'=>array('Aro.foreign_key' => $this->Group->id, 'Aro.model' => 'Group'), 
+						'fields' => array('Aro.id')
+						)
+					);
+				if(!$this->ArosAco->savePermissions($this->data, $aro['Aro']['id']))
+				{
+					$this->Session->setFlash(
+						__("Error setting permissions", true), 'default', array('class' => 'error-message')
+					);
+					$this->redirect(array('action' => 'edit', $this->Group->id));
+				}
 				// save successful: set message and redirect
-				$this->Session->setFlash('Group Created');
+				$this->Session->setFlash(__("Group saved",true));
 				$this->redirect(array('action' => 'index'));
 			}
 			else
 			{
 				// save failed
+				$this->Session->setFlash(
+					__("Error saving group", true), 'default', array('class' => 'error-message')
+				);
 			}
 		}
 	}
