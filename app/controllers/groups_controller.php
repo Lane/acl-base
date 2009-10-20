@@ -18,22 +18,6 @@ class GroupsController extends AppController
 		);
 	}
 	
-	function admin_permissions()
-	{
-		if(!empty($this->data)) // form has been submitted
-		{
-			if(!$this->ArosAco->save($this->data))
-			{
-				$this->Session->setFlash(
-					__("Error setting permissions", true), 'default', array('class' => 'error-message')
-				);
-			}
-			// save successful: set message and redirect
-			$this->Session->setFlash(__("Permission saved",true));
-			$this->redirect(array('action' => 'edit', $this->data['Group']['id']));
-		}
-	}
-	
 	function admin_add()
 	{
 		if(!empty($this->data)) // form has been submitted

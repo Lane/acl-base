@@ -29,6 +29,9 @@ ul.list li span.user-list-item-lastseen { display: block; clear: left; color: #3
 ul.list li span.group-list-item-actions,
 ul.list li span.user-list-item-actions { float: right; }
 
+ul.list li.alt1 { background: #fff; }
+ul.list li.alt2 { background: #f1f1f1; }
+
 #userbox { background-color:#eee; text-align: right; }
 #userbox span { padding: 0.25em 0.5em; color: #666; display: block; }
 #main-content {   }

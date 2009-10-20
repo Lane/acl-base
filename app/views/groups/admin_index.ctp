@@ -3,9 +3,9 @@
 	<h2><?php echo __("Group List"); ?></h2>
 	<p class="page-description">Viewing <?php echo sizeof($groups); ?> groups sorted by group name</p>
 	<div class="inner-box">
-		<ul class="group-list list alt<?php echo (($c++)%2)+1; ?>">
+		<ul class="group-list list">
 		<?php foreach($groups as $group): ?>
-			<li class="group-list-item">
+			<li class="group-list-item alt<?php echo (($c++)%2)+1; ?>">
 				<span class="group-list-item-name"><?php echo $group['Group']['name']; ?></span>
 				<span class="group-list-item-users">(<?php echo sizeof($group['User']); ?> Users)</span>
 				<span class="group-list-item-actions">

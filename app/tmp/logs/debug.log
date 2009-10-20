@@ -88,3 +88,5 @@
 2009-10-20 10:43:40 Notice: Notice (8): Undefined variable: acos in [APP/views/groups/admin_add.ctp, line 28]
 2009-10-20 14:29:34 Notice: Notice (8): Undefined index:  alias in [APP/views/groups/admin_add.ctp, line 77]
 2009-10-20 14:29:57 Notice: Notice (8): Undefined index:  alias in [APP/views/groups/admin_add.ctp, line 77]
+2009-10-20 16:42:24 Notice: Notice (8): Undefined variable: aro in [APP/views/groups/admin_add.ctp, line 34]
+2009-10-20 16:42:24 Notice: Notice (8): Undefined variable: permissions in [APP/views/groups/admin_add.ctp, line 79]

@@ -2,7 +2,7 @@
 class UsersController extends AppController
 {
 	var $name = 'Users';
-	var $uses = array('User', 'Aro', 'Group');
+	var $uses = array('User', 'Aro', 'Group', 'Aco', 'ArosAco');
 	
 	function beforeFilter() 
 	{
@@ -79,7 +79,18 @@ class UsersController extends AppController
 			$this->Session->setFlash('Invalid user');
 			// redirect to error page
 		}
-		$this->set('groups', $this->User->Group->find('list'));
+		$groups = $this->Group->find('list');
+		$aro = $this->Aro->find('first', array(
+			'fields' => array('Aro.id'),
+			'conditions'=>array('Aro.foreign_key'=>$id, 'Aro.model' => 'User')
+			)
+		);
+		$permissions = $this->ArosAco->find('all', array(
+			'conditions' => array('ArosAco.aro_id' => $aro['Aro']['id'])
+			)
+		);
+		$acos = $this->Aco->generatetreelist(null, '{n}.Aco.id', '{n}.Aco.alias', '. . ');
+		$this->set(compact('acos', 'permissions', 'aro', 'groups'));
 		$this->render('admin_add');
 	}
 	
