@@ -71,12 +71,12 @@ fieldset fieldset div { clear: left; margin: 0 20px; }
 form div { clear: both; vertical-align: text-top; }
 form div.input { color: #444; }
 form div.required { color: #333; font-weight: bold; }
-form div.submit input { display: inline; width: auto; vertical-align: bottom; font-weight: bold; font-size: 1em; padding:0.2em }
+form div.submit input { display: inline; width: auto; vertical-align: bottom; font-size: 1em; padding:0.2em }
 label { display: block; font-size: 1em; padding: 0em 0em; width: 12em; font-weight: bold; color: #333; float: left; }
 input, textarea { clear: both; font-size: 1em; padding: 0.125em; width: 20em;  }
 select { clear: both; font-size: 1em; width: 100%; width: 20em;}
 select[multiple=multiple] { width: 100%; }
-option { font-size: 1.2em;  }
+option { font-size: 1em;  }
 input[type=radio] { float:left; width:auto; margin: 0 3px 7px 0; }
 div.radio label { margin: 0 0 6px 20px; }
 .add-form, .main-box { background: #eee; border: 1px solid #ccc; padding: 0.5em 0.75em; } 
@@ -85,15 +85,47 @@ div.radio label { margin: 0 0 6px 20px; }
 .add-form div label { padding: 0em; width: 12em; font-weight: bold; }
 form div.submit,
 .add-form div.submit { margin-left: 12em; }
-.add-form div.checkbox input { width: auto; margin-left: 0em; }
+.add-form div.checkbox input,
+span.permissions-item-create input,
+span.permissions-item-read input,
+span.permissions-item-update input,
+span.permissions-item-delete input { width: auto; margin-left: 0em; }
 .add-form p.page-description, 
 .main-box p.page-description { margin: 0em; padding-bottom: 0.5em;  font-size: 0.89em; border-bottom: 1px solid #ccc; color: #666;  }
-div.permissions-heading { font-weight:bold; padding: 0em; padding-bottom: 0.25em; border-bottom: 1px solid #ccc; font-size: 0.89em; margin: 0em; color: #666;}
-div.permissions-heading span.permissions-heading-module { width: 30em; display:block; float: left; }
+
+/* 
+---------------------------------------------------------------------
+PERMISSIONS LIST STYLING 
+---------------------------------------------------------------------
+*/
+div.permissions-heading { font-weight:bold; padding: 0.25em 0em; background: #333; border-bottom: 1px solid #999; margin: 0em; color: #fff;}
+div.permissions-heading span.permissions-heading-module,
+div.permissions-item-form span.permissions-item-module,
+div.permissions-item span.permissions-item-module { width: 27em; display:block; float: left; text-align: left; margin-left: 0.5em; }
+div.permissions-heading span.permissions-heading-module { margin-right: -1em; }
+/* Checkbox Columns */
+div.permissions-item-form span.permissions-item-create,
+div.permissions-item-form span.permissions-item-read,
+div.permissions-item-form span.permissions-item-update,
+div.permissions-item-form span.permissions-item-delete,
+div.permissions-item span.permissions-item-create,
+div.permissions-item span.permissions-item-read,
+div.permissions-item span.permissions-item-update,
+div.permissions-item span.permissions-item-delete,
 div.permissions-heading span.permissions-heading-create,
 div.permissions-heading span.permissions-heading-read,
 div.permissions-heading span.permissions-heading-update,
-div.permissions-heading span.permissions-heading-delete { width: 5em; display:block; float: left; }
+div.permissions-heading span.permissions-heading-delete { width: 5em; display:block; float: left; text-align: left; }
+/* Permission Rows */
+div.permissions-item, 
+div.permissions-item-form { text-align: right; background: #fff; border-bottom: 1px solid #ccc; padding-right: 0.5em }
+div.permissions-item-form { padding: 0.5em 0em 0.5em 0em; background: #ddd; border-bottom:1px solid #aaa;  }
+div.permissions-item-form span.permissions-item-actions input { margin-right: 0.5em; display: inline; width: auto; font-size: 1em; padding: 0em 0.25em; margin-top: -0.2em; }
+div.permissions-item-form form{ padding: 0em; margin: 0em; }
+div.permissions-item span.permissions-item-actions form { margin: 0em; padding: 0em; display: inline; }
+div.permissions-item span.permissions-item-actions input { margin: 0em; padding: 0em; width: 16px; height: 16px; }
+
+
 /* Tables */
 table { background: #fff;	border:1px solid #ccc;	border-right:0;	clear: both; color: #333; margin-bottom: 10px;  }
 th {	background: #f2f2f2; border:1px solid #bbb; border-top: 1px solid #fff; border-left: 1px solid #fff; text-align: center; }

@@ -2,6 +2,7 @@
 class GroupsController extends AppController
 {
 	var $name = 'Groups';
+	var $uses = array('Group', 'Aco', 'Aro', 'ArosAco');
 	
 	function beforeFilter()
 	{
@@ -17,25 +18,28 @@ class GroupsController extends AppController
 		);
 	}
 	
+	function admin_permissions()
+	{
+		if(!empty($this->data)) // form has been submitted
+		{
+			if(!$this->ArosAco->save($this->data))
+			{
+				$this->Session->setFlash(
+					__("Error setting permissions", true), 'default', array('class' => 'error-message')
+				);
+			}
+			// save successful: set message and redirect
+			$this->Session->setFlash(__("Permission saved",true));
+			$this->redirect(array('action' => 'edit', $this->data['Group']['id']));
+		}
+	}
+	
 	function admin_add()
 	{
 		if(!empty($this->data)) // form has been submitted
 		{
 			if($this->Group->save($this->data))
 			{
-				$aro = $this->Aro->find(
-					'first', array(
-						'conditions'=>array('Aro.foreign_key' => $this->Group->id, 'Aro.model' => 'Group'), 
-						'fields' => array('Aro.id')
-						)
-					);
-				if(!$this->ArosAco->savePermissions($this->data, $aro['Aro']['id']))
-				{
-					$this->Session->setFlash(
-						__("Error setting permissions", true), 'default', array('class' => 'error-message')
-					);
-					$this->redirect(array('action' => 'edit', $this->Group->id));
-				}
 				// save successful: set message and redirect
 				$this->Session->setFlash(__("Group saved",true));
 				$this->redirect(array('action' => 'index'));
@@ -48,6 +52,8 @@ class GroupsController extends AppController
 				);
 			}
 		}
+		$acos = $this->Aco->generatetreelist(null, '{n}.Aco.id', '{n}.Aco.alias', '. . ');
+		$this->set(compact('acos'));
 	}
 	
 	function admin_edit($id=null)
@@ -65,16 +71,27 @@ class GroupsController extends AppController
 				// save failed
 			}
 		}
-		else
+		$this->data = $this->Group->find('first', array(
+			'conditions' => array('Group.id' => $id)
+			)
+		);
+		if($id == null || $this->data == null)
 		{
-			$this->data = $this->Group->find('first', array('conditions' => array('Group.id' => $id)));
-			if($id == null || $this->data == null)
-			{
-				$this->Session->setFlash('Invalid group');
-				// redirect to error page
-			}
-			$this->render('admin_add');
+			$this->Session->setFlash('Invalid group');
+			// redirect to error page
 		}
+		$aro = $this->Aro->find('first', array(
+			'fields' => array('Aro.id'),
+			'conditions'=>array('Aro.foreign_key'=>$id, 'Aro.model' => 'Group')
+			)
+		);
+		$permissions = $this->ArosAco->find('all', array(
+			'conditions' => array('ArosAco.aro_id' => $aro['Aro']['id'])
+			)
+		);
+		$acos = $this->Aco->generatetreelist(null, '{n}.Aco.id', '{n}.Aco.alias', '. . ');
+		$this->set(compact('acos', 'permissions', 'aro'));
+		$this->render('admin_add');
 	}
 	
 	function admin_delete($id=null)

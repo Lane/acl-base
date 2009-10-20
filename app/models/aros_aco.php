@@ -3,17 +3,8 @@ class ArosAco extends AppModel
 {
 	var $name = 'ArosAco';
 	 
-	var $hasMany = array(
-		'Aco' => array(
-			'className' => 'Aco',
-			'foreignKey' => 'id',
-		),
-		'Aro' => array(
-			'className' => 'Aro',
-			'foreignKey' => 'id',
-		)
-	);
- 
+	var $belongsTo = array('Aco', 'Aro');
+	
 	function setPermissions($acos, $aro)
 	{
 		foreach($acos as $k => $aco)
