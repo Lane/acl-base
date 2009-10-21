@@ -3,6 +3,7 @@ class AppController extends Controller
 {
 	// Components to use application wide
     var $components = array('Acl', 'Auth', 'Cookie');
+	var $uses = array('User');
 	
 	// Helpers
 	var $helpers = array('Html', 'Form', 'Gravatar', 'Time');
@@ -63,7 +64,6 @@ class AppController extends Controller
 	
 	function beforeFilter()
 	{
-		$cookie = null;
 		$this->Auth->allow('display');
 		$this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
 		$this->Auth->loginRedirect = array('controller' => 'pages', 'action' => 'display', 'home');
@@ -76,12 +76,7 @@ class AppController extends Controller
             'password' => 'passwd'
         );
 		
-		// check if user is logged in, or if they have a valid cookie
-		if(!$this->__setLoggedUserValues() && ($cookie = $this->Cookie->read($this->cookieName )))
-		{
-			$this->Auth->login($cookie);
-			$this->__setLoggedUserValues();
-		}
+		$this->__setLoggedUserValues();
 	}
 	
 	function beforeRender()
@@ -118,8 +113,10 @@ class AppController extends Controller
 			{
 				$this->Session->setFlash('Your account has been disabled.','default', array('class' => 'error-message'));
 				$this->Auth->logout();
-				$this->Cookie->del('User');
+				return false;
 			}
+			$this->User->id = $this->Auth->user('id');
+			$this->User->saveField('login_count', $this->Auth->user('login_count')+1);
 			$this->set('User', $user[$this->Auth->userModel]);
 			$this->loggedUser = $user[$this->Auth->userModel][$this->Auth->fields['username']];
 			return true;

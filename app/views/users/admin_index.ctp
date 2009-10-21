@@ -17,12 +17,12 @@
 							'controller' => 'users', 
 							'action' => 'edit', 
 							$user['User']['id']
-						)); ?>
+						), array('class'=>'button-edit')); ?>
 						<?php echo $html->link("delete", array(
 							'controller' => 'users', 
 							'action' => 'delete', 
 							$user['User']['id']
-						)); ?>
+						), array('class'=>'button-delete')); ?>
 					</span>
 					<span class="user-list-item-lastseen">
 						<?php __("Last seen"); ?> 

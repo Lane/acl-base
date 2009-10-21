@@ -3,6 +3,12 @@ class GroupsController extends AppController
 {
 	var $name = 'Groups';
 	var $uses = array('Group', 'Aco', 'Aro', 'ArosAco');
+    var $paginate = array(
+        'limit' => 10,
+        'order' => array(
+            'Group.name' => 'asc'
+        )
+    );	
 	
 	function beforeFilter()
 	{
@@ -16,6 +22,11 @@ class GroupsController extends AppController
 				'crud' => 'create'
 			)
 		);
+	}
+	
+	function admin_get_groups()
+	{
+	
 	}
 	
 	function admin_add()

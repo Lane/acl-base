@@ -147,69 +147,18 @@ class UsersController extends AppController
 	
 	function admin_login() 
 	{
-		if ($this->Auth->user())
-		{
-			if (!empty($this->data) && $this->data['User']['remember_me'] && $this->allowCookie)
-			{
-					$cookie = array();
-					$cookie['username'] = $this->data['User']['username'];
-					$cookie['passwd'] = $this->data['User']['passwd'];
-					$this->Cookie->write($this->cookieName, $cookie, true, $this->cookieTerm);
-					unset($this->data['User']['remember_me']);
-			}
-			$this->redirect($this->Auth->redirect());
-		}
-		if (empty($this->data)) 
-		{
-			$cookie = $this->Cookie->read('Auth.User');
-			if (!is_null($cookie)) 
-			{
-				if ($this->Auth->login($cookie)) 
-				{
-					//  Clear auth message, just in case we use it.
-					$this->Session->del('Message.auth');
-					$this->redirect($this->Auth->redirect());
-				} 
-				else 
-				{ // Delete invalid Cookie
-					$this->Cookie->del('Auth.User');
-				}
-			}
-		}
+		$this->Auth->loginRedirect = array(
+			'controller' => 'dashboard', 
+			'action' => 'display', 
+			'index'
+		);
 		$this->layout = "login";
+		$this->login();
 	}
 	
 	function login() 
 	{
-		if ($this->Auth->user())
-		{
-			if (!empty($this->data) && $this->data['User']['remember_me'] && $this->allowCookie)
-			{
-					$cookie = array();
-					$cookie['username'] = $this->data['User']['username'];
-					$cookie['passwd'] = $this->data['User']['passwd'];
-					$this->Cookie->write($this->cookieName, $cookie, true, $this->cookieTerm);
-					unset($this->data['User']['remember_me']);
-			}
-			$this->redirect($this->Auth->redirect());
-		}
-		if (empty($this->data)) 
-		{
-			$cookie = $this->Cookie->read('Auth.User');
-			if (!is_null($cookie)) 
-			{
-				if ($this->Auth->login($cookie)) 
-				{
-					//  Clear auth message, just in case we use it.
-					$this->Session->del('Message.auth');
-					$this->redirect($this->Auth->redirect());
-				} 
-				else 
-				{ // Delete invalid Cookie
-					$this->Cookie->del('Auth.User');
-				}
-			}
-		}
+	
 	}
 
     function logout()

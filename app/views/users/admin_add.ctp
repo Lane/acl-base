@@ -28,7 +28,9 @@
 		} 
 		echo $form->inputs($inputs);
 		echo $form->end("Save");
-		echo $this->element("permissions");
 	?>
+	<?php if(strpos($this->action, 'edit') !== false): ?>
+	<?php echo $this->element("permissions"); ?>
+	<?php endif; ?>
 	
 </div>

@@ -89,16 +89,36 @@
 				<?php echo $p['Aco']['alias']; ?>
 			</span>
 			<span class="permissions-item-create">
-				<?php echo $html->image("permission_".$p['ArosAco']['_create'].".png"); ?>
+				<?php echo $html->image("permission_".$p['ArosAco']['_create'].".png",
+					array(
+						'alt' => __("Permission".$p['ArosAco']['_create'], true),
+						'title' => __("Permission".$p['ArosAco']['_create'], true)
+					)
+				);  ?>
 			</span>
 			<span class="permissions-item-read">
-				<?php echo $html->image("permission_".$p['ArosAco']['_read'].".png"); ?>
+				<?php echo $html->image("permission_".$p['ArosAco']['_read'].".png",
+					array(
+						'alt' => __("Permission".$p['ArosAco']['_read'], true),
+						'title' => __("Permission".$p['ArosAco']['_read'], true)
+					)
+				);  ?>
 			</span>
 			<span class="permissions-item-update">
-				<?php echo $html->image("permission_".$p['ArosAco']['_update'].".png");  ?>
+				<?php echo $html->image("permission_".$p['ArosAco']['_update'].".png",
+					array(
+						'alt' => __("Permission".$p['ArosAco']['_update'], true),
+						'title' => __("Permission".$p['ArosAco']['_update'], true)
+					)
+				);  ?>
 			</span>
 			<span class="permissions-item-delete">
-				<?php echo $html->image("permission_".$p['ArosAco']['_delete'].".png");  ?>
+				<?php echo $html->image("permission_".$p['ArosAco']['_delete'].".png",
+					array(
+						'alt' => __("Permission".$p['ArosAco']['_delete'], true),
+						'title' => __("Permission".$p['ArosAco']['_delete'], true)
+					)
+				); ?>
 			</span>
 			<span class="permissions-item-actions">
 				<?php echo $form->create('ArosAco', array('action' => 'delete')); ?>
@@ -106,7 +126,11 @@
 						'type' => 'hidden', 
 						'value' => $p['ArosAco']['id']
 					)); ?>
-					<?php echo $form->submit("trash.png", array('div'=>false));  ?>
+					<?php echo $form->submit("trash.png", array(
+						'div'=>false, 
+						'title'=>__('Delete Permission',true), 
+						'alt'=>__('Delete Permission',true)
+					)); ?>
 				<?php echo $form->end(); ?>
 			</span>
 		</div>

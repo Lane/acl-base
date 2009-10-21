@@ -8,5 +8,7 @@
 		echo $form->inputs($inputs, $blacklist);
 		echo $form->end("Save");
 	?>
+	<?php if(strpos($this->action, 'edit') !== false): ?>
 	<?php echo $this->element("permissions"); ?>
+	<?php endif; ?>
 </div>
