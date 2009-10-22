@@ -2,7 +2,14 @@
 <div id="groups-index" class="content main-box">
 	<h2><?php echo __("Group List"); ?></h2>
 	<div id="group-list">
-	<p class="page-description">Viewing <?php echo sizeof($groups); ?> groups sorted by group name</p>
+	<p class="page-description">
+		<?php
+		echo $paginator->counter(array(
+			'format' => 'Page %page% of %pages%, showing records %start% - %end% of %count%'
+		)); 
+		?>
+		<?php echo $paginator->sort('Name', 'Group.name'); ?>
+	</p>
 	<div class="inner-box">
 		<ul class="group-list list">
 		<?php foreach($groups as $group): ?>

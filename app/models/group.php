@@ -10,7 +10,7 @@ class Group extends AppModel
 		)
 	);
 	
-	var $actsAs = array('Acl'=>'requester');
+	var $actsAs = array('Acl'=>'requester','Containable');
 	
 	var $hasMany = 'User';
 	

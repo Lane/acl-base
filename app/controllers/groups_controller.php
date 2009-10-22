@@ -4,10 +4,12 @@ class GroupsController extends AppController
 	var $name = 'Groups';
 	var $uses = array('Group', 'Aco', 'Aro', 'ArosAco');
     var $paginate = array(
-        'limit' => 10,
-        'order' => array(
-            'Group.name' => 'asc'
-        )
+		'Group' => array(
+			'limit' => 10,
+			'order' => array(
+				'Group.name' => 'asc'
+			)
+		)
     );	
 	
 	function beforeFilter()
@@ -26,7 +28,7 @@ class GroupsController extends AppController
 	
 	function admin_get_groups()
 	{
-	
+		$this->set('groups', $this->paginate('Group'));
 	}
 	
 	function admin_add()
@@ -121,10 +123,9 @@ class GroupsController extends AppController
 		$this->set(compact('group'));
 	}
 	
-	function admin_index($id=null)
+	function admin_index()
 	{
-		$groups = $this->Group->find('all');
-		$this->set(compact('groups'));
+		$this->set('groups', $this->paginate('Group'));
 	}
 }
 ?>

@@ -1,7 +1,14 @@
 <?php $c=0; //initialize counter ?>
 <div id="users-index" class="content main-box">
 	<h2><?php echo __("Users List"); ?></h2>
-	<p class="page-description">Viewing <?php echo sizeof($users);?> users by time last seen </p>
+	<p class="page-description">
+		<?php
+		echo $paginator->counter(array(
+			'format' => 'Page %page% of %pages%, showing records %start% - %end% of %count%'
+		)); 
+		?>
+		<?php echo $paginator->sort('Username', 'User.username'); ?>
+	</p>
 	<div class="inner-box">
 		<ul class="user-list list">
 			<?php foreach($users as $user): ?>

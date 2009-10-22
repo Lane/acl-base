@@ -3,6 +3,14 @@ class UsersController extends AppController
 {
 	var $name = 'Users';
 	var $uses = array('User', 'Aro', 'Group', 'Aco', 'ArosAco');
+    var $paginate = array(
+		'User' => array(
+			'limit' => 10,
+			'order' => array(
+				'User.username' => 'asc'
+			)
+		)
+    );	
 	
 	function beforeFilter() 
 	{
@@ -20,8 +28,7 @@ class UsersController extends AppController
 	
 	function admin_index()
 	{
-		$users = $this->User->find('all');
-		$this->set(compact('users'));
+		$this->set('users', $this->paginate('User'));
 	}
 	
 	function admin_add()
