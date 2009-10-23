@@ -7,18 +7,29 @@
 			'format' => 'Page %page% of %pages%, showing records %start% - %end% of %count%'
 		)); 
 		?>
-		<?php echo $paginator->sort('Username', 'User.username'); ?>
 	</p>
+	<div class="sort-users">
+		<span class="sort-by"><?php __("Sort by:"); ?>
+		<?php echo $paginator->sort('Username', 'User.username'); ?>
+		<?php echo $paginator->sort('Group', 'Group.name'); ?>
+		<?php echo $paginator->sort('Last Seen', 'User.modified'); ?>
+		<?php echo $paginator->sort('Status', 'User.enabled'); ?>
+	</div>
 	<div class="inner-box">
 		<ul class="user-list list">
 			<?php foreach($users as $user): ?>
-				<li class="user-list-item  alt<?php echo (($c++)%2)+1; ?>">
+				<li class="user-list-item status<?php echo $user['User']['enabled']; ?>  alt<?php echo (($c++)%2)+1; ?>">
 					<span class="user-list-item-name">
 						<?php echo $user['User']['username']; ?>
 					</span>
 					<span class="user-list-item-group">
 						(<?php echo Inflector::singularize($user['Group']['name']); ?>)
 					</span>
+					<?php if(!$user['User']['enabled']): ?>
+					<span class="user-list-item-disabled">
+						(Account Disabled)
+					</span>
+					<?php endif; ?>
 					<span class="user-list-item-actions">
 						<?php echo $html->link("edit", array(
 							'controller' => 'users', 

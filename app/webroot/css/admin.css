@@ -24,6 +24,7 @@ ul.list li span.group-list-item-name,
 ul.list li span.user-list-item-name { float: left; font-weight:bold; font-size: 1.1em; margin-right: 0.5em; } 
 ul.list li span.group-list-item-users,
 ul.list li span.user-list-item-group { color: #666; font-style: italic; } 
+ul.list li span.user-list-item-disabled { color: #c00; font-style: italic; } 
 ul.list li span.group-list-item-description,
 ul.list li span.user-list-item-lastseen { display: block; clear: left; color: #333; } 
 ul.list li span.group-list-item-actions,
@@ -31,6 +32,10 @@ ul.list li span.user-list-item-actions { float: right; }
 
 ul.list li.alt1 { background: #fff; }
 ul.list li.alt2 { background: #f1f1f1; }
+ul.list li.alt1.status0 { background: #fee; border-bottom: 1px solid #ecc; border-top: 1px solid #edd; }
+ul.list li.alt1.status1 {  }
+ul.list li.alt2.status0 { background: #f1eeee; border-bottom: 1px solid #dcc; border-top: 1px solid #ddd; }
+ul.list li.alt2.status1 {  }
 
 #userbox { background-color:#eee; text-align: right; }
 #userbox span { padding: 0.25em 0.5em; color: #666; display: block; }
@@ -131,7 +136,7 @@ div.permissions-item span.permissions-item-message { color: #666; font-style: it
 
 /* Buttons */
 span.user-list-item-actions a,
-span.group-list-item-actions a { color: #333; text-decoration: none; padding: 0.15em; margin-left: 0.5em}
+span.group-list-item-actions a { color: #333; text-decoration: none; padding: 0.15em; margin-left: 0.5em }
 span.user-list-item-actions a:hover,
 span.group-list-item-actions a:hover { border-bottom: 1px solid #ccc; color: #666; }
 span.user-list-item-actions a.button-edit,
@@ -140,6 +145,10 @@ span.user-list-item-actions a.button-delete,
 span.group-list-item-actions a.button-delete { padding-left: 20px; background-image: url("../img/delete.png"); background-repeat: no-repeat; background-position: 0px 2px; }
 a.button-add { }
 a.button-view { }
+
+/*Sorting*/
+div.sort-groups,
+div.sort-users { float: right; margin-top: -2em; }
 
 
 /* Tables */

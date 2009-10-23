@@ -8,8 +8,12 @@
 			'format' => 'Page %page% of %pages%, showing records %start% - %end% of %count%'
 		)); 
 		?>
-		<?php echo $paginator->sort('Name', 'Group.name'); ?>
 	</p>
+	<div class="sort-groups">
+		<span class="sort-by"><?php __("Sort by:"); ?></span>
+		<?php echo $paginator->sort(__('Name',true), 'Group.name'); ?>
+		<?php echo $paginator->sort(__('User Count',true), 'Group.user_count'); ?>
+	</div>
 	<div class="inner-box">
 		<ul class="group-list list">
 		<?php foreach($groups as $group): ?>
@@ -18,7 +22,7 @@
 					<?php echo $group['Group']['name']; ?>
 				</span>
 				<span class="group-list-item-users">
-					(<?php echo sizeof($group['User']); ?> Users)
+					(<?php echo $group['Group']['user_count']; ?> Users)
 				</span>
 				<span class="group-list-item-actions">
 					<?php echo $html->link("edit", array(

@@ -33,12 +33,18 @@ class UsersController extends AppController
 	
 	function admin_add()
 	{
-		if(!empty($this->data)) // form has been submitted
+		// The form has been submitted
+		if(!empty($this->data)) 
 		{
 			$this->data['User']['group_id'] = $this->data['User']['Group'];
 			unset($this->data['User']['Group']);
 			if($this->User->save($this->data))
 			{
+				// Update the user count for the group
+				$this->Group->updateAll(
+					array('Group.user_count'=>'Group.user_count+1'), 
+					array('Group.id'=>$this->data['User']['group_id'])
+				);
 				// save successful: set message and redirect
 				$this->Session->setFlash('Account Created');
 				$this->redirect(array('action' => 'index'));
@@ -50,10 +56,13 @@ class UsersController extends AppController
 				unset($this->data['User']['confirm_password']);
 			}
 		}
+		else
+		{
+			// The form has not been submitted, set defaults
+			$this->data['User']['group_id'] = 3;
+			$this->data['User']['enabled'] = 1;
+		}
 		// form has not been submitted or did not validate
-		// set defaults
-		$this->data['User']['group_id'] = 3;
-		$this->data['User']['enabled'] = 1;
 		$this->set('groups', $this->Group->find('list'));
 	}
 	
@@ -68,6 +77,18 @@ class UsersController extends AppController
 			unset($this->data['User']['Group']);
 			if($this->User->save($this->data))
 			{
+				// If the group has been changed then update the user count
+				if($this->data['User']['old_group_id'] != $this->data['User']['group_id'])
+				{
+					$this->Group->updateAll(
+						array('Group.user_count'=>'Group.user_count-1'), 
+						array('Group.id'=>$this->data['User']['old_group_id'])
+					);
+					$this->Group->updateAll(
+						array('Group.user_count'=>'Group.user_count+1'), 
+						array('Group.id'=>$this->data['User']['group_id'])
+					);
+				}
 				// save successful: set message and redirect
 				$this->Session->setFlash('Account Edited');
 				$this->redirect(array('action' => 'index'));
@@ -107,8 +128,15 @@ class UsersController extends AppController
 		{
 			if($this->data['User']['delete'] == 1)
 			{
+				$this->User->id = $this->data['User']['id'];
+				$groupId = $this->User->group_id;
 				if($this->User->delete($this->data['User']['id']))
 				{
+					// Update the user count for the group
+					$this->Group->updateAll(
+						array('Group.user_count'=>'Group.user_count-1'), 
+						array('Group.id'=>$this->data['User']['group_id'])
+					);
 					// user deleted, do something
 					$this->Session->setFlash('User deleted.');
 					$this->redirect(array('action' => 'index'));
