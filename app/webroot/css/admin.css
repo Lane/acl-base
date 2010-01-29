@@ -40,7 +40,7 @@ ul.list li.alt2.status1 {  }
 #userbox { background-color:#eee; text-align: right; }
 #userbox span { padding: 0.25em 0.5em; color: #666; display: block; }
 #main-content {   }
-#footer-wrapper { background-color: #333; border-top: 4px solid #111; color: #fff; margin-top: 1em;  padding-top: 1em; }
+#footer-wrapper { background-color: #333; color: #fff; margin-top: 1em;  padding-top: 1em; }
 
 #sidebar ul, #sidebar li { margin: 0em; padding: 0em; list-style-type: none; }
 

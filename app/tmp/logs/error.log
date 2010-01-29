@@ -98,3 +98,198 @@ Aco: Dashboard in [CORE/cake/libs/controller/components/acl.php, line 239]
 2009-10-23 10:32:22 Warning: Warning (2): Invalid argument supplied for foreach() in [APP/views/groups/admin_index.ctp, line 16]
 2009-10-23 10:32:23 Warning: Warning (512): <span style = "color:Red;text-align:left"><b>SQL Error:</b> 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.users, Group.id FROM `users` AS `User` LEFT JOIN `groups` AS `Group` ON (`User`' at line 1</span> in [CORE/cake/libs/model/datasources/dbo_source.php, line 525]
 2009-10-23 10:32:23 Warning: Warning (2): Invalid argument supplied for foreach() in [APP/views/groups/admin_index.ctp, line 16]
+2010-01-28 15:29:44 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: Array
+(
+    [User] => Array
+        (
+            [id] => 1
+            [username] => LaneOlson
+            [email_address] => laneolson@gmail.com
+            [created] => 2009-09-21 09:47:09
+            [modified] => 2010-01-28 15:28:52
+            [group_id] => 1
+            [enabled] => 1
+            [login_count] => 3
+        )
+
+)
+
+Aco: Dashboard in [CORE/cake/libs/controller/components/acl.php, line 239]
+2010-01-28 15:29:44 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:109) in [CORE/cake/libs/controller/controller.php, line 644]
+2010-01-28 15:30:17 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: Array
+(
+    [User] => Array
+        (
+            [id] => 1
+            [username] => LaneOlson
+            [email_address] => laneolson@gmail.com
+            [created] => 2009-09-21 09:47:09
+            [modified] => 2010-01-28 15:28:52
+            [group_id] => 1
+            [enabled] => 1
+            [login_count] => 3
+        )
+
+)
+
+Aco: Dashboard in [CORE/cake/libs/controller/components/acl.php, line 239]
+2010-01-28 15:30:17 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:109) in [CORE/cake/libs/controller/controller.php, line 644]
+2010-01-28 15:30:59 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: Array
+(
+    [User] => Array
+        (
+            [id] => 1
+            [username] => LaneOlson
+            [email_address] => laneolson@gmail.com
+            [created] => 2009-09-21 09:47:09
+            [modified] => 2010-01-28 15:28:52
+            [group_id] => 1
+            [enabled] => 1
+            [login_count] => 3
+        )
+
+)
+
+Aco: Dashboard in [CORE/cake/libs/controller/components/acl.php, line 239]
+2010-01-28 15:30:59 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:109) in [CORE/cake/libs/controller/controller.php, line 644]
+2010-01-28 15:31:01 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: Array
+(
+    [User] => Array
+        (
+            [id] => 1
+            [username] => LaneOlson
+            [email_address] => laneolson@gmail.com
+            [created] => 2009-09-21 09:47:09
+            [modified] => 2010-01-28 15:28:52
+            [group_id] => 1
+            [enabled] => 1
+            [login_count] => 3
+        )
+
+)
+
+Aco: Dashboard in [CORE/cake/libs/controller/components/acl.php, line 239]
+2010-01-28 15:31:01 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:109) in [CORE/cake/libs/controller/controller.php, line 644]
+2010-01-28 15:33:41 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: Array
+(
+    [User] => Array
+        (
+            [id] => 1
+            [username] => LaneOlson
+            [email_address] => laneolson@gmail.com
+            [created] => 2009-09-21 09:47:09
+            [modified] => 2010-01-28 15:28:52
+            [group_id] => 1
+            [enabled] => 1
+            [login_count] => 3
+        )
+
+)
+
+Aco: ArosAcos in [CORE/cake/libs/controller/components/acl.php, line 239]
+2010-01-28 15:33:41 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:109) in [CORE/cake/libs/controller/controller.php, line 644]
+2010-01-28 15:33:59 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: Array
+(
+    [User] => Array
+        (
+            [id] => 1
+            [username] => LaneOlson
+            [email_address] => laneolson@gmail.com
+            [created] => 2009-09-21 09:47:09
+            [modified] => 2010-01-28 15:28:52
+            [group_id] => 1
+            [enabled] => 1
+            [login_count] => 3
+        )
+
+)
+
+Aco: ArosAcos in [CORE/cake/libs/controller/components/acl.php, line 239]
+2010-01-28 15:33:59 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:109) in [CORE/cake/libs/controller/controller.php, line 644]
+2010-01-28 15:35:25 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: Array
+(
+    [User] => Array
+        (
+            [id] => 1
+            [username] => LaneOlson
+            [email_address] => laneolson@gmail.com
+            [created] => 2009-09-21 09:47:09
+            [modified] => 2010-01-28 15:28:52
+            [group_id] => 1
+            [enabled] => 1
+            [login_count] => 3
+        )
+
+)
+
+Aco: ArosAcos in [CORE/cake/libs/controller/components/acl.php, line 239]
+2010-01-28 15:35:25 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:109) in [CORE/cake/libs/controller/controller.php, line 644]
+2010-01-28 15:36:11 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: Array
+(
+    [User] => Array
+        (
+            [id] => 1
+            [username] => LaneOlson
+            [email_address] => laneolson@gmail.com
+            [created] => 2009-09-21 09:47:09
+            [modified] => 2010-01-28 15:35:25
+            [group_id] => 1
+            [enabled] => 1
+            [login_count] => 4
+        )
+
+)
+
+Aco: ArosAcos in [CORE/cake/libs/controller/components/acl.php, line 239]
+2010-01-28 15:36:11 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:109) in [CORE/cake/libs/controller/controller.php, line 644]
+2010-01-28 15:40:14 Warning: Warning (512): Auth::startup() - Attempted access of un-mapped action "logout" in controller "users" in [CORE/cake/libs/controller/components/auth.php, line 490]
+2010-01-28 15:40:14 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:109) in [CORE/cake/libs/controller/controller.php, line 644]
+2010-01-28 15:40:24 Warning: Warning (512): Auth::startup() - Attempted access of un-mapped action "logout" in controller "users" in [CORE/cake/libs/controller/components/auth.php, line 490]
+2010-01-28 15:40:24 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:109) in [CORE/cake/libs/controller/controller.php, line 644]
+2010-01-28 15:53:15 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: Array
+(
+    [User] => Array
+        (
+            [id] => 1
+            [username] => LaneOlson
+            [email_address] => laneolson@gmail.com
+            [created] => 2009-09-21 09:47:09
+            [modified] => 2010-01-28 15:40:45
+            [group_id] => 1
+            [enabled] => 1
+            [login_count] => 4
+        )
+
+)
+
+Aco: ArosAcos in [CORE/cake/libs/controller/components/acl.php, line 239]
+2010-01-28 15:53:15 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:109) in [CORE/cake/libs/controller/controller.php, line 644]
+2010-01-28 15:54:28 Warning: Warning (512): DbAcl::check() - Failed ARO/ACO node lookup in permissions check.  Node references:
+Aro: Array
+(
+    [User] => Array
+        (
+            [id] => 1
+            [username] => LaneOlson
+            [email_address] => laneolson@gmail.com
+            [created] => 2009-09-21 09:47:09
+            [modified] => 2010-01-28 15:40:45
+            [group_id] => 1
+            [enabled] => 1
+            [login_count] => 4
+        )
+
+)
+
+Aco: ArosAcos in [CORE/cake/libs/controller/components/acl.php, line 239]
+2010-01-28 15:54:28 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:109) in [CORE/cake/libs/controller/controller.php, line 644]
+2010-01-28 16:00:30 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/sandbox/cake/basics.php:109) in [CORE/cake/libs/controller/controller.php, line 644]

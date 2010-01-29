@@ -32,6 +32,7 @@
  * to use (in this case, /app/views/pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
+	Router::connect('/admin/', array('controller' => 'dashboard', 'action' => 'index',  'admin' => '1'));
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */

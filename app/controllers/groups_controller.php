@@ -86,8 +86,15 @@ class GroupsController extends AppController
 			'conditions' => array('ArosAco.aro_id' => $aro['Aro']['id'])
 			)
 		);
+		
+		$userAro = array(
+			'model' => 'User', 
+			'foreign_key' => $this->Auth->user('id')
+		);
+		$aclPermissions = $this->__getAclArray($userAro, 'Permissions');
+		
 		$acos = $this->Aco->generatetreelist(null, '{n}.Aco.id', '{n}.Aco.alias', '. . ');
-		$this->set(compact('acos', 'permissions', 'aro'));
+		$this->set(compact('acos', 'permissions', 'aro', 'aclPermissions'));
 		$this->render('admin_add');
 	}
 	

@@ -70,7 +70,7 @@ class AppController extends Controller
 		$this->Auth->authorize = 'crud';
 		$this->Auth->loginError = 'Sorry, login failed. Either your username or password are incorrect.';
 		$this->Auth->authError = 'The page you tried to access is restricted. You have been redirected to the page below.';
-        $this->Auth->allow('*'); // TEMPORARY
+        $this->Auth->allow('login', 'logout'); // TEMPORARY
         $this->Auth->fields = array(
             'username' => 'username', 
             'password' => 'passwd'
@@ -183,6 +183,20 @@ class AppController extends Controller
 			);
 		}
 		return $menu;
+	}
+	
+	function __getAclArray($aro, $aco)
+	{
+		$aclArray['create'] = 
+			$this->Acl->check($aro, $aco, 'create');
+		$aclArray['delete'] = 
+			$this->Acl->check($aro, $aco, 'delete');
+		$aclArray['read'] = 
+			$this->Acl->check($aro, $aco, 'read');
+		$aclArray['update'] = 
+			$this->Acl->check($aro, $aco, 'update');
+			
+		return $aclArray;
 	}
 }
 ?>

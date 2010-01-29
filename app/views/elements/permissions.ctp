@@ -1,3 +1,4 @@
+<?php if(isset($aclPermissions) && $aclPermissions['read']):?>	
 	<h2>Permissions</h2>
 	<div class="permissions-heading">
 		<span class="permissions-heading-module">Module</span>
@@ -7,8 +8,11 @@
 		<span class="permissions-heading-delete">Delete</span>
 		<span class="permissions-heading-actions">&nbsp;</span>
 	</div>
+	<?php if($aclPermissions['create']):?>
 	<div class="permissions-item-form">
-		<?php echo $form->create('ArosAco', array('action' => 'add')); ?>
+		<?php echo $form->create('Permission', array(
+			'action' => 'add'
+		)); ?>
 		<span class="permissions-item-module">
 			<?php echo $form->input('ArosAco.aco_id', 
 				array(
@@ -66,6 +70,7 @@
 		</span>
 		<?php echo $form->end(); ?>
 	</div>
+	<?php endif; ?>
 	<?php if(empty($permissions)): ?>
 		<div class="permissions-item">
 			<span class="permissions-item-message">
@@ -120,8 +125,10 @@
 					)
 				); ?>
 			</span>
+			
 			<span class="permissions-item-actions">
-				<?php echo $form->create('ArosAco', array('action' => 'delete')); ?>
+			<?php if($aclPermissions['delete']):?>
+				<?php echo $form->create('Permission', array('action' => 'delete')); ?>
 					<?php echo $form->input('ArosAco.id', array(
 						'type' => 'hidden', 
 						'value' => $p['ArosAco']['id']
@@ -132,6 +139,11 @@
 						'alt'=>__('Delete Permission',true)
 					)); ?>
 				<?php echo $form->end(); ?>
+			<?php else: ?>
+				&nbsp;
+			<?php endif; ?>
 			</span>
+			
 		</div>
 	<?php endforeach; ?>
+<?php endif; ?>

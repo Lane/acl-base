@@ -117,8 +117,20 @@ class UsersController extends AppController
 			'conditions' => array('ArosAco.aro_id' => $aro['Aro']['id'])
 			)
 		);
-		$acos = $this->Aco->generatetreelist(null, '{n}.Aco.id', '{n}.Aco.alias', '. . ');
-		$this->set(compact('acos', 'permissions', 'aro', 'groups'));
+		
+		$userAro = array(
+			'model' => 'User', 
+			'foreign_key' => $this->Auth->user('id')
+		);
+		$aclPermissions = $this->__getAclArray($userAro, 'Permissions');
+		
+		$acos = $this->Aco->generatetreelist(
+			null, '{n}.Aco.id', '{n}.Aco.alias', '. . '
+		);
+		$this->set(
+			compact('acos', 'permissions', 'aro', 
+					'groups', 'aclPermissions')
+		);
 		$this->render('admin_add');
 	}
 	
